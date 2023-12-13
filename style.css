@@ -34,6 +34,7 @@ body {
   /* todas as descrições acima foram comprimidas na descrição abaixo. */
   /*background: color image repeat position/size */
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 /* configurações que afetam todo o corpo da página */
 body * {
@@ -42,7 +43,8 @@ body * {
 }
 #container {
   /* margin:auto permite que o browser preencha automaticamente a margem. A sequencia de obediencia é sentido horário. */
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
 
   margin: 56px auto 0px;
 }
@@ -90,7 +92,6 @@ body * {
   backdrop-filter: blur(4px);
   display: block;
   border-radius: 9999px;
-  
 }
 
 .light #switch button {
@@ -158,4 +159,13 @@ footer {
   font-size: 14px;
   padding: 24px;
   text-align: center;
+}
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
