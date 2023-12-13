@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* elemntos raíz da página. Valores iniciais */
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+/* Elemntos que vão sofreram alteração quando mudar o tema da página */
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color-hover: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  /* todas as descrições acima foram comprimidas na descrição abaixo. */
+  /*background: color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+/* configurações que afetam todo o corpo da página */
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+#container {
+  /* margin:auto permite que o browser preencha automaticamente a margem. A sequencia de obediencia é sentido horário. */
+  width: 360px;
+
+  margin: 56px auto 0px;
+}
+
+/*profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  /* Todas as informaçoes são destrinchadas na guia style.css especificamente. A tag alt (em html) indica uma descrição detalhada da imagem caso o servidor não a encontre. */
+  width: 150px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+/* switch: botão que vai alterar o modo dark pra light */
+#switch {
+  position: relative;
+  margin: 4px auto;
+  width: 64px;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0px;
+  border-radius: 50%;
+
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+#switch span {
+  width: 64px;
+  height: 24px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  display: block;
+  border-radius: 9999px;
+  
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+/* lista com links - aki edita todo o corpo da lista */
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+/* links - aki edita o nome dos links */
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500px;
+  transition: 0.2s;
+}
+/* modo BOTAO PRESSIONADO */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  padding: 24px;
+
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background-color: var(--highlight-color-hover);
+  padding: 16px;
+}
+
+footer {
+  font-size: 14px;
+  padding: 24px;
+  text-align: center;
+}
